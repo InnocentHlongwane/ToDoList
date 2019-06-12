@@ -5,18 +5,39 @@
   </h1>
   
    </div>
+   <div *ngIf ="empty">
+      <h2> to do list is empty</h2>
+        </div> 
 
-   <input [(ngModel)] = "newTask " />
+  <input placeholder="enter task name" [(ngModel)]= "newTask" />
+   <input placeholder="enter priority"[(ngModel)]= "newPriority" />
+     
+  
 
    <button (click)="addTask()">+</button>
 
    <ul *ngFor="let task of tasks" class="btn"> 
-  <button (click)="deleteTask(task)">x </button>
- 
-    
-      {{task}} 
 
-   </ul>
+      {{task.taskName}} 
+      {{task.priority}}
+      
+      <mat-card>
+      <mat-card-actions>
+        <!-- <input matInput placeholder="Favorite food" value="Sushi"> -->
+        <button (click)="editTask(task)"mat-button><mat-icon >edit</mat-icon></button>
+        <button (click)="deleteTask(task)"mat-button><mat-icon>delete</mat-icon></button>
+
+      
+        </mat-card-actions>
+        
+      </mat-card>
+   
+
+     <!-- <button (click)="deleteTask(task)">x </button>
+  <button (click)="editTask(task)">EditTask</button> -->
+
+    
+
 
 
  
